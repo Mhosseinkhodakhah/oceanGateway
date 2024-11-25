@@ -96,6 +96,4 @@ app.use("/api/v1/set-user" , routing.proxy(`${process.env.SET_USER}`));        /
 
 app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_CONTENT}`));        // routing the req to set content service
 
-app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_QUIZE}`));        // routing the req to set quize service
-
-app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_ADMIN}`));        // routing the req to set admin service
+app.use("/api/v1/set-admin" , routing.proxy(`${process.env.SET_ADMIN}`));        // routing the req to set admin service
