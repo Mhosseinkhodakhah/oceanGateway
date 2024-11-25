@@ -86,13 +86,34 @@ app.listen(port, () => {
 
 const routing = new router()
 
+import {
+    createProxyMiddleware,
+    debugProxyErrorsPlugin, // subscribe to proxy errors to prevent server from crashing
+    loggerPlugin, // log proxy events to a logger (ie. console)
+    errorResponsePlugin, // return 5xx response on proxy error
+    proxyEventsPlugin, // implements the "on:" option
+    fixRequestBody
+  } from 'http-proxy-middleware';
+
+
+
+// required plugins for proxy middleware
+const plugins = [debugProxyErrorsPlugin, loggerPlugin, errorResponsePlugin, proxyEventsPlugin]
+
 //proxeing
 
 app.get('/test' , (req:any , res:any , next:any)=>{
     res.status(200).send('gateway is running successfully . . .')
 })
 
-app.use("/api/v1/set-user" , routing.proxy(`${process.env.SET_USER}`));        // routing the req to set user service
+app.use("/api/v1/set-user" , createProxyMiddleware({
+    target:  'http://localhost:5000',
+    changeOrigin: true,
+    pathRewrite: {
+      [`^/`]: "",
+    },
+    plugins : plugins
+  }));        // routing the req to set user service
 
 app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_CONTENT}`));        // routing the req to set content service
 

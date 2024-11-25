@@ -1,0 +1,54 @@
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/register',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '4a0c3277-e884-4877-9527-bbb1332cb996',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/register',
+      query: {}
+    },
+    res: { statusCode: 504 },
+    responseTime: 64
+  },
+  level: 'error',
+  message: 'POST /api/v1/set-user/app/register 504 64ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:12:07'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/register',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '07ff89fe-8936-400f-84b6-3fa333b232db',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/register',
+      query: {}
+    },
+    res: { statusCode: 500 },
+    responseTime: 78
+  },
+  level: 'error',
+  message: 'POST /api/v1/set-user/app/register 500 78ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:13:00'
+}
