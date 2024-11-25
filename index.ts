@@ -62,8 +62,6 @@ winston.configure({
 })
 
 
-app.use(cookieParser())
-app.use(express.json({limit : "25mb"}))
 
 process.on('unhandledRejection', (error) => {
     console.log('error occured . . .', error)

@@ -52,3 +52,238 @@
   label: 'right meow!',
   timestamp: '2024-11-26 00:13:00'
 }
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/register',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '60394913-606b-4157-9a8d-450413c8550a',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/register',
+      query: {}
+    },
+    res: { statusCode: 504 },
+    responseTime: 66
+  },
+  level: 'error',
+  message: 'POST /api/v1/set-user/app/register 504 66ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:16:46'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/register',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '985163c4-619b-4469-8e01-b9db9c2a9f8f',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/register',
+      query: {}
+    },
+    res: { statusCode: 504 },
+    responseTime: 5
+  },
+  level: 'error',
+  message: 'POST /api/v1/set-user/app/register 504 5ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:17:06'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/test',
+      headers: {
+        host: 'localhost:8010',
+        connection: 'keep-alive',
+        'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'none',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'en-US,en;q=0.9,fa;q=0.8',
+        cookie: 'comentid=projects.css; ids=projects.css; id=657a9dd18d0370d9d2efb3f6; csrftoken=f7nKJuUIiFhDdEvJYEwLKwrB46a528ds; gmail=kianlucifer0098%40gmail.com; name=majid; verifyNumber=%20hhhads%3Blkf'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/test',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 16
+  },
+  level: 'info',
+  message: 'GET /api/v1/set-user/app/test 200 16ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:19:37'
+}
+{
+  meta: {
+    req: {
+      url: '/favicon.ico',
+      headers: {
+        host: 'localhost:8010',
+        connection: 'keep-alive',
+        'sec-ch-ua-platform': '"Windows"',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-mode': 'no-cors',
+        'sec-fetch-dest': 'image',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'en-US,en;q=0.9,fa;q=0.8',
+        cookie: 'comentid=projects.css; ids=projects.css; id=657a9dd18d0370d9d2efb3f6; csrftoken=f7nKJuUIiFhDdEvJYEwLKwrB46a528ds; gmail=kianlucifer0098%40gmail.com; name=majid; verifyNumber=%20hhhads%3Blkf'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/favicon.ico',
+      query: {}
+    },
+    res: { statusCode: 404 },
+    responseTime: 3
+  },
+  level: 'warn',
+  message: 'GET /favicon.ico 404 3ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:19:37'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/test',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '82a2c51b-4398-46ff-b1ca-9eb24360a2a7',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/test',
+      query: {}
+    },
+    res: { statusCode: 504 },
+    responseTime: 43589
+  },
+  level: 'error',
+  message: 'GET /api/v1/set-user/app/test 504 43589ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:19:57'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/test',
+      headers: {
+        host: 'localhost:8010',
+        connection: 'keep-alive',
+        'cache-control': 'max-age=0',
+        'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'none',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        'accept-encoding': 'gzip, deflate, br, zstd',
+        'accept-language': 'en-US,en;q=0.9,fa;q=0.8',
+        cookie: 'comentid=projects.css; ids=projects.css; id=657a9dd18d0370d9d2efb3f6; csrftoken=f7nKJuUIiFhDdEvJYEwLKwrB46a528ds; gmail=kianlucifer0098%40gmail.com; name=majid; verifyNumber=%20hhhads%3Blkf',
+        'if-none-match': 'W/"b-GVaIlIAwHe+hVIQ96Oq7sdtl26A"'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/test',
+      query: {}
+    },
+    res: { statusCode: 304 },
+    responseTime: 8
+  },
+  level: 'info',
+  message: 'GET /api/v1/set-user/app/test 304 8ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:20:24'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/test',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '261e8b24-4153-4458-80e0-2fdbcd808711',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/test',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 8
+  },
+  level: 'info',
+  message: 'GET /api/v1/set-user/app/test 200 8ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:25:26'
+}
+{
+  meta: {
+    req: {
+      url: '/api/v1/set-user/app/register',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '81f62b43-ff4b-4843-a6ee-973c532003f0',
+        host: 'localhost:8010',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '171'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/api/v1/set-user/app/register',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 2007
+  },
+  level: 'info',
+  message: 'POST /api/v1/set-user/app/register 200 2007ms',
+  label: 'right meow!',
+  timestamp: '2024-11-26 00:27:44'
+}
