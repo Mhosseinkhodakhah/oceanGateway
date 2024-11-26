@@ -7,7 +7,6 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const winston_1 = __importDefault(require("winston"));
 const express_winston_1 = __importDefault(require("express-winston"));
-const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
 const helmet_1 = __importDefault(require("helmet"));
 const hpp_1 = __importDefault(require("hpp"));
@@ -42,8 +41,6 @@ winston_1.default.configure({
         // new winston.transports.Console()
     ],
 });
-app.use((0, cookie_parser_1.default)());
-app.use(express_1.default.json({ limit: "25mb" }));
 process.on('unhandledRejection', (error) => {
     console.log('error occured . . .', error);
 });
@@ -58,11 +55,20 @@ app.listen(port, () => {
     console.log('server connecting successfully . . .');
 });
 const routing = new router_1.default();
+const http_proxy_middleware_1 = require("http-proxy-middleware");
+// required plugins for proxy middleware
+const plugins = [http_proxy_middleware_1.debugProxyErrorsPlugin, http_proxy_middleware_1.loggerPlugin, http_proxy_middleware_1.errorResponsePlugin, http_proxy_middleware_1.proxyEventsPlugin];
 //proxeing
 app.get('/test', (req, res, next) => {
     res.status(200).send('gateway is running successfully . . .');
 });
-app.use("/api/v1/set-user", routing.proxy(`${process.env.SET_USER}`)); // routing the req to set user service
+app.use("/api/v1/set-user", (0, http_proxy_middleware_1.createProxyMiddleware)({
+    target: 'http://localhost:5000',
+    changeOrigin: true,
+    pathRewrite: {
+        [`^/`]: "",
+    },
+    plugins: plugins
+})); // routing the req to set user service
 app.use("/api/v1/set-content", routing.proxy(`${process.env.SET_CONTENT}`)); // routing the req to set content service
-app.use("/api/v1/set-content", routing.proxy(`${process.env.SET_QUIZE}`)); // routing the req to set quize service
-app.use("/api/v1/set-content", routing.proxy(`${process.env.SET_ADMIN}`)); // routing the req to set admin service
+app.use("/api/v1/set-admin", routing.proxy(`${process.env.SET_ADMIN}`)); // routing the req to set admin service
