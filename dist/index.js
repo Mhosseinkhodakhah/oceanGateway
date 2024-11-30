@@ -62,14 +62,8 @@ const plugins = [http_proxy_middleware_1.debugProxyErrorsPlugin, http_proxy_midd
 app.get('/test', (req, res, next) => {
     res.status(200).send('gateway is running successfully . . .');
 });
-app.use("/api/v1/set-user", (0, http_proxy_middleware_1.createProxyMiddleware)({
-    target: 'http://localhost:5000',
-    changeOrigin: true,
-    pathRewrite: {
-        [`^/`]: "",
-    },
-    plugins: plugins
-})); // routing the req to set user service
+app.use("/api/v1/set-user", routing.proxy(`${process.env.SET_USER}`)); // routing the req to set user service
+app.use("/api/v1/get-user", routing.proxy(`${process.env.GET_USER}`)); // routing the req to get user service
 app.use("/api/v1/set-content", routing.proxy(`${process.env.SET_CONTENT}`)); // routing the req to set content service
 app.use("/api/v1/get-content", routing.proxy(`${process.env.GET_CONTENT}`)); // routing the req to get content service
 app.use("/api/v1/set-quize", routing.proxy(`${process.env.SET_QUIZE}`)); // routing the req to set quize service

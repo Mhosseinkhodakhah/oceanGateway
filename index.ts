@@ -104,14 +104,9 @@ app.get('/test' , (req:any , res:any , next:any)=>{
     res.status(200).send('gateway is running successfully . . .')
 })
 
-app.use("/api/v1/set-user" , createProxyMiddleware({
-    target:  'http://localhost:5000',
-    changeOrigin: true,
-    pathRewrite: {
-      [`^/`]: "",
-    },
-    plugins : plugins
-  }));        // routing the req to set user service
+app.use("/api/v1/set-user" ,routing.proxy(`${process.env.SET_USER}`));        // routing the req to set user service
+
+app.use("/api/v1/get-user" ,routing.proxy(`${process.env.GET_USER}`));        // routing the req to get user service
 
 app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_CONTENT}`));        // routing the req to set content service
 
