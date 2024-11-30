@@ -71,5 +71,7 @@ app.use("/api/v1/set-user", (0, http_proxy_middleware_1.createProxyMiddleware)({
     plugins: plugins
 })); // routing the req to set user service
 app.use("/api/v1/set-content", routing.proxy(`${process.env.SET_CONTENT}`)); // routing the req to set content service
-app.use("/api/v1/get-content", routing.proxy(`${process.env.GET_CONTENT}`)); // routing the req to set content service
+app.use("/api/v1/get-content", routing.proxy(`${process.env.GET_CONTENT}`)); // routing the req to get content service
+app.use("/api/v1/set-quize", routing.proxy(`${process.env.SET_QUIZE}`)); // routing the req to set quize service
+app.use("/api/v1/get-quize", routing.proxy(`${process.env.GET_QUIZE}`)); // routing the req to get quize service
 app.use("/api/v1/set-admin", routing.proxy(`${process.env.SET_ADMIN}`)); // routing the req to set admin service
