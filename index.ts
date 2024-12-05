@@ -119,3 +119,5 @@ app.use("/api/v1/get-quize" , routing.proxy(`${process.env.GET_QUIZE}`));       
 app.use("/api/v1/set-admin" , routing.proxy(`${process.env.SET_ADMIN}`));        // routing the req to set admin service
 
 app.use("/api/v1/user-log" , routing.proxy(`${process.env.LOG}`));        // routing the req to set admin service
+
+app.use('/upload-center' ,  routing.proxy(`${process.env.UPLOADCENTER}`))    // its for upload center
