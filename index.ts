@@ -120,4 +120,4 @@ app.use("/api/v1/set-admin" , routing.proxy(`${process.env.SET_ADMIN}`));       
 
 app.use("/api/v1/user-log" , routing.proxy(`${process.env.LOG}`));        // routing the req to set admin service
 
-app.use('/upload-center' ,  routing.proxy(`${process.env.UPLOADCENTER}`))    // its for upload center
+app.use('/api/v1/upload-center' ,  routing.proxy(`${process.env.UPLOADCENTER}`))    // its for upload center
