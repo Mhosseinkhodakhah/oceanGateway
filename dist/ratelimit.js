@@ -5,7 +5,10 @@ exports.default = (req, res, next) => {
     console.log(bulk);
     if (bulk.tokens == 0) {
         // console.log('timeeeee' , bulk.exceededTime - new Date().getTime())
-        if ((new Date().getTime() - bulk.exceededTime) >= 500 * 1000) {
+        if (bulk.exceededTime == 0) {
+            bulk.exceededTime = new Date().getTime();
+        }
+        if ((new Date().getTime() - bulk.exceededTime) >= 2 * 1000) {
             bulk.tokens = 10;
             bulk.exceededTime = 0;
             console.log('bulk full again . . .');
@@ -13,9 +16,6 @@ exports.default = (req, res, next) => {
         }
         else {
             console.log('bulk is empty . . .');
-            if (bulk.exceededTime == 0) {
-                bulk.exceededTime = new Date().getTime();
-            }
             return res.status(429).json({
                 success: false,
                 scope: 'gateway ratelimit',
