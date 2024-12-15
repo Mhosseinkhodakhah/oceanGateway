@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let bulk = { tokens: 50, exceededTime: 0 };
+let bulk = { tokens: 10, exceededTime: 0 };
 exports.default = (req, res, next) => {
     console.log(bulk);
     if (bulk.tokens == 0) {
-        if (bulk.exceededTime - new Date().getTime() >= 2) {
-            bulk.tokens = 50;
+        // console.log('timeeeee' , bulk.exceededTime - new Date().getTime())
+        if ((new Date().getTime() - bulk.exceededTime) >= 2 * 1000) {
+            bulk.tokens = 10;
             bulk.exceededTime = 0;
             console.log('bulk full again . . .');
             next();

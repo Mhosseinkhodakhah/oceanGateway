@@ -1,18 +1,19 @@
 
 
-let bulk = { tokens: 50, exceededTime: 0 }
+let bulk = { tokens: 10, exceededTime: 0 }
 
 export default (req: any, res: any, next: any) => {
     console.log(bulk)
     if (bulk.tokens == 0) {
-        if (bulk.exceededTime - new Date().getTime() >= 2) {
-            bulk.tokens = 50;
+        // console.log('timeeeee' , bulk.exceededTime - new Date().getTime())
+        if ((new Date().getTime() - bulk.exceededTime) >= 2*1000) {
+            bulk.tokens = 10;
             bulk.exceededTime = 0;
             console.log('bulk full again . . .')
             next()
         } else {
             console.log('bulk is empty . . .')
-            if (bulk.exceededTime == 0){
+            if (bulk.exceededTime == 0) {
                 bulk.exceededTime = new Date().getTime()
             }
             return res.status(429).json({
