@@ -5,7 +5,7 @@ exports.default = (req, res, next) => {
     console.log(bulk);
     if (bulk.tokens == 0) {
         // console.log('timeeeee' , bulk.exceededTime - new Date().getTime())
-        if ((new Date().getTime() - bulk.exceededTime) >= 5 * 1000) {
+        if ((new Date().getTime() - bulk.exceededTime) >= 500 * 1000) {
             bulk.tokens = 10;
             bulk.exceededTime = 0;
             console.log('bulk full again . . .');
