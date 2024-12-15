@@ -1,32 +1,42 @@
 "use strict";
+// interface bulk = {
+//     id : {
 Object.defineProperty(exports, "__esModule", { value: true });
-let bulk = { tokens: 10, exceededTime: 0 };
+//     }
+// }
+let bulk = {};
 exports.default = (req, res, next) => {
-    console.log(bulk);
-    if (bulk.tokens == 0) {
-        // console.log('timeeeee' , bulk.exceededTime - new Date().getTime())
-        if (bulk.exceededTime == 0) {
-            bulk.exceededTime = new Date().getTime();
-        }
-        if ((new Date().getTime() - bulk.exceededTime) >= 2 * 1000) {
-            bulk.tokens = 10;
-            bulk.exceededTime = 0;
-            console.log('bulk full again . . .');
-            next();
+    console.log(req.header('x-forwarded-for'));
+    let Ip = req.header('x-forwarded-for');
+    if (bulk[Ip]) {
+        if (bulk[Ip].tokens == 0) {
+            if (bulk[Ip].exceededTime == 0) {
+                bulk[Ip].exceededTime = new Date().getTime();
+            }
+            if ((new Date().getTime() - bulk[Ip].exceededTime) >= 3 * 1000) {
+                bulk[Ip].tokens = 10;
+                bulk[Ip].exceededTime = 0;
+                console.log('bulk[Ip] full again . . .');
+                next();
+            }
+            else {
+                console.log('bulk[Ip] is empty . . .');
+                return res.status(429).json({
+                    success: false,
+                    scope: 'gateway ratelimit',
+                    error: 'maximum try exceeded',
+                    data: null
+                });
+            }
         }
         else {
-            console.log('bulk is empty . . .');
-            return res.status(429).json({
-                success: false,
-                scope: 'gateway ratelimit',
-                error: 'maximum try exceeded',
-                data: null
-            });
+            bulk[Ip].tokens--;
+            console.log('mines bulk[Ip]', bulk[Ip]);
+            next();
         }
     }
     else {
-        bulk.tokens--;
-        console.log('mines bulk', bulk);
+        bulk[Ip] = { tokens: 100, exceededTime: 0 };
         next();
     }
 };
