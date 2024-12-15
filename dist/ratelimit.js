@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let bulk = {};
 exports.default = (req, res, next) => {
     // console.log(req.header('x-forwarded-for'))
-    console.log(req.header['x-real-ip']);
+    console.log(req.header);
     let Ip = req.header['x-real-ip'];
     if (bulk[Ip]) {
         if (bulk[Ip].tokens == 0) {
