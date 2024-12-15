@@ -11,8 +11,8 @@ let bulk: any = {}
 
 export default (req: any, res: any, next: any) => {
     // console.log(req.header('x-forwarded-for'))
-    console.log(req.header('X-Client-IP'))
-    let Ip = req.header('x-forwarded-for')
+    console.log(req.header('x-real-ip'))
+    let Ip = req.header('x-real-ip')
     if (bulk[Ip]) {
         if (bulk[Ip].tokens == 0) {
             if (bulk[Ip].exceededTime == 0) {
