@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser'
 import mongoSanitize from 'express-mongo-sanitize'
 import helmet from 'helmet'
 // import xss from "xss-clean"
-import ratelimit from 'express-rate-limit'
+// import ratelimit from 'express-rate-limit'
 import hpp from 'hpp'
 import cors from 'cors'
 import responseTime from 'response-time'
@@ -92,6 +92,7 @@ import {
     proxyEventsPlugin, // implements the "on:" option
     fixRequestBody
   } from 'http-proxy-middleware';
+import ratelimit from './ratelimit'
 
 
 
@@ -104,20 +105,20 @@ app.get('/test' , (req:any , res:any , next:any)=>{
     res.status(200).send('gateway is running successfully . . .')
 })
 
-app.use("/api/v1/set-user" ,routing.proxy(`${process.env.SET_USER}`));        // routing the req to set user service
+app.use("/api/v1/set-user" , ratelimit ,routing.proxy(`${process.env.SET_USER}`));        // routing the req to set user service
 
-app.use("/api/v1/get-user" ,routing.proxy(`${process.env.GET_USER}`));        // routing the req to get user service
+app.use("/api/v1/get-user" , ratelimit ,routing.proxy(`${process.env.GET_USER}`));        // routing the req to get user service
 
-app.use("/api/v1/set-content" , routing.proxy(`${process.env.SET_CONTENT}`));        // routing the req to set content service
+app.use("/api/v1/set-content" , ratelimit , routing.proxy(`${process.env.SET_CONTENT}`));        // routing the req to set content service
 
-app.use("/api/v1/get-content" , routing.proxy(`${process.env.GET_CONTENT}`));        // routing the req to get content service
+app.use("/api/v1/get-content" , ratelimit , routing.proxy(`${process.env.GET_CONTENT}`));        // routing the req to get content service
 
-app.use("/api/v1/set-quize" , routing.proxy(`${process.env.SET_QUIZE}`));        // routing the req to set quize service
+app.use("/api/v1/set-quize" , ratelimit , routing.proxy(`${process.env.SET_QUIZE}`));        // routing the req to set quize service
 
-app.use("/api/v1/get-quize" , routing.proxy(`${process.env.GET_QUIZE}`));        // routing the req to get quize service
+app.use("/api/v1/get-quize" , ratelimit , routing.proxy(`${process.env.GET_QUIZE}`));        // routing the req to get quize service
 
-app.use("/api/v1/set-admin" , routing.proxy(`${process.env.SET_ADMIN}`));        // routing the req to set admin service
+app.use("/api/v1/set-admin" , ratelimit , routing.proxy(`${process.env.SET_ADMIN}`));        // routing the req to set admin service
 
-app.use("/api/v1/user-log" , routing.proxy(`${process.env.LOG}`));        // routing the req to set admin service
+app.use("/api/v1/user-log" , ratelimit , routing.proxy(`${process.env.LOG}`));        // routing the req to set admin service
 
-app.use('/api/v1/upload-center' ,  routing.proxy(`${process.env.UPLOADCENTER}`))    // its for upload center
+app.use('/api/v1/upload-center' , ratelimit ,  routing.proxy(`${process.env.UPLOADCENTER}`))    // its for upload center
