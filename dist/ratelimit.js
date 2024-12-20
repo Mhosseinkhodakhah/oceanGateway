@@ -7,6 +7,12 @@ exports.default = (req, res, next) => {
         if (bulk[Ip].tokens == 0) {
             if (bulk[Ip].exceededTime == 0) {
                 bulk[Ip].exceededTime = new Date().getTime();
+                return res.status(429).json({
+                    success: false,
+                    scope: 'gateway ratelimit',
+                    error: 'maximum try exceeded',
+                    data: null
+                });
             }
             if ((new Date().getTime() - bulk[Ip].exceededTime) >= 3 * 1000) {
                 bulk[Ip].tokens = 100;
