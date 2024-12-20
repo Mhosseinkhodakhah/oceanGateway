@@ -1,12 +1,4 @@
 
-
-// interface bulk = {
-//     id : {
-
-//     }
-// }
-
-
 let bulk: any = {}
 
 export default (req: any, res: any, next: any) => {
@@ -17,7 +9,7 @@ export default (req: any, res: any, next: any) => {
                 bulk[Ip].exceededTime = new Date().getTime()
             }
             if ((new Date().getTime() - bulk[Ip].exceededTime) >= 3 * 1000) {
-                bulk[Ip].tokens = 10;
+                bulk[Ip].tokens = 100;
                 bulk[Ip].exceededTime = 0;
                 console.log(`bulk ${Ip} full again . . .`)
                 next()

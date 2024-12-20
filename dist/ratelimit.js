@@ -1,9 +1,5 @@
 "use strict";
-// interface bulk = {
-//     id : {
 Object.defineProperty(exports, "__esModule", { value: true });
-//     }
-// }
 let bulk = {};
 exports.default = (req, res, next) => {
     let Ip = req.headers['x-real-ip'];
@@ -13,7 +9,7 @@ exports.default = (req, res, next) => {
                 bulk[Ip].exceededTime = new Date().getTime();
             }
             if ((new Date().getTime() - bulk[Ip].exceededTime) >= 3 * 1000) {
-                bulk[Ip].tokens = 10;
+                bulk[Ip].tokens = 100;
                 bulk[Ip].exceededTime = 0;
                 console.log(`bulk ${Ip} full again . . .`);
                 next();
