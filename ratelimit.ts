@@ -18,7 +18,7 @@ export default (req: any, res: any, next: any) => {
                 })
             } else if (new Date().getTime() - bulk[Ip].exceededTime >= 50 * 1000) {
                 console.log('this ips time passed 50 seconds . . .')
-                bulk[Ip].tokens = 10;
+                bulk[Ip].tokens = 100;
                 bulk[Ip].exceededTime = new Date().getTime()
                 next()
             }
@@ -31,13 +31,13 @@ export default (req: any, res: any, next: any) => {
                 next()
             } else {
                 console.log('this ip passed its time , so reset its tokens and time . . .')
-                bulk[Ip].tokens = 10;
+                bulk[Ip].tokens = 100;
                 bulk[Ip].exceededTime = new Date().getTime()
                 next()
             }
         }
     } else {
-        bulk[Ip] = { tokens: 10, exceededTime: new Date().getTime() }
+        bulk[Ip] = { tokens: 100, exceededTime: new Date().getTime() }
         next()
     }
 }
