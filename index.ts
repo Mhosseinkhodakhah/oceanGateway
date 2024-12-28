@@ -28,6 +28,7 @@ app.use(cors())
 dotenv.config({path : './config/config.env'})
 
 
+
 //set logger
 app.use(
     expressWinston.logger({
@@ -101,8 +102,40 @@ const plugins = [debugProxyErrorsPlugin, loggerPlugin, errorResponsePlugin, prox
 
 //proxeing
 
-app.get('/test' , (req:any , res:any , next:any)=>{
-    res.status(200).send('gateway is running successfully . . .')
+app.get('/' ,ratelimit ,(req:any , res:any , next:any)=>{
+    let Ip = req.headers['x-real-ip']
+    let html = `<!DOCTYPE html>
+   <html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <title>otp code for reseting password</title>
+    </head>
+    <body class="container-fluid justify-content-center">
+        <div class="container-fluid justify-content-center">
+        <div class="card text-center">
+            <div  class="card-header" style=" height:60px; text-align : center; background-color: rgba(0, 190, 190, 0.316);">
+                ocean journey
+            </div>
+            <div class="card-body">
+              <h5 style="text-align : center;" class="card-title">Your IpAddress :: ${Ip}</h5>
+              <p style="text-align : center;" class="card-text">please download the app named "ocean journey" and use it</p>
+              <br>
+              <p style="text-align : center;" class="card-text">this is warn page for accessing</p>
+              <p style="text-align : center;" class="card-text"> you have not permisioned for access to this rout</p>
+            </div>
+            <div class="card-footer text-body-secondary">
+                <h6 style="text-align: center;">  <span class="badge text-bg-secondary">inio.ac.ir</span></h6> 
+            </div>
+          </div>
+    </div>
+    </body>
+   </html>`
+    res.status(200).send(html)
 })
 
 app.use("/api/v1/set-user" , ratelimit ,routing.proxy(`${process.env.SET_USER}`));        // routing the req to set user service
